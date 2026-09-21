@@ -1,19 +1,21 @@
+English | [简体中文](README.zh-CN.md) | [日本語](README.ja.md)
+
 # OpenChamber Command Code Usage
 
-在 OpenChamber Desktop/Web 中显示 Command Code 使用量。
+A lightweight OpenChamber extension that displays Command Code usage directly
+inside OpenChamber.
+
+## Preview
 
 ![Command Code Usage preview](assets/preview.png)
 
-显示：
+## Features
 
-- Monthly usage / remaining
-- 5-hour window
-- Weekly window
-- reset time
-- requests
-- cost
-- tokens
-- success rate
+- Plan and account status
+- Monthly usage, total allowance, percentage, remaining allowance, and period end
+- 5-hour and weekly usage windows with percentages and reset times
+- Billing-period requests, cost, input/output tokens, and success rate
+- Manual refresh, one refresh when the panel opens, and refreshes every five minutes while it remains open
 
 ## Requirements
 
@@ -21,7 +23,7 @@
 - Command Code CLI
 - `cmduse`
 
-macOS 安装示例：
+### macOS setup
 
 ```sh
 npm i -g command-code@latest
@@ -29,11 +31,17 @@ cmd login
 brew install JeffreyJYZ/tap/cmduse
 ```
 
-验证：
+Verify the CLI installation:
 
 ```sh
 cmduse -1 --json
 ```
+
+## Installation
+
+The repository includes the generated files required by OpenChamber. Git URL
+installation does not run `npm install` or build TypeScript for the extension,
+so `panel/main.js` and `service/main.js` are committed.
 
 ## Install in OpenChamber
 
@@ -42,9 +50,6 @@ cmduse -1 --json
 3. Paste `https://github.com/dai1012/openchamber-commandcode-usage`.
 4. Click **Add**.
 5. Approve the local service permission.
-
-OpenChamber installs the committed `panel/main.js` and `service/main.js`
-directly. It does not run `npm install` or build TypeScript for an extension.
 
 ## How it works
 
@@ -56,19 +61,33 @@ extension local service
 cmduse -1 --json
 ```
 
-The extension does not read `~/.commandcode/auth.json` and does not save a
-Command Code API key. Usage data comes only from the local `cmduse` command.
-The service also avoids returning child-process stdout/stderr when execution
-or JSON parsing fails.
+The panel calls the extension's local service through the OpenChamber host.
+The service discovers and runs the local `cmduse` executable, then returns its
+parsed JSON response to the panel.
 
-The extension has been verified on macOS Apple Silicon with OpenChamber
-1.24.x. Other platforms may work when `cmduse` is on `PATH` or is available
+## Privacy / Security
+
+- The extension does not read `~/.commandcode/auth.json`.
+- The extension does not store a Command Code API key.
+- Usage data comes only from the local `cmduse -1 --json` command.
+- The local service listens only on localhost (`127.0.0.1`).
+- The extension does not upload usage data to third-party servers.
+- Child-process stdout/stderr is not returned when execution or JSON parsing fails.
+
+## Platform compatibility
+
+Verified:
+
+- macOS Apple Silicon
+- OpenChamber 1.24.x
+
+Other platforms may work when `cmduse` is available on `PATH` or configured
 through `CMDUSE_PATH`, but they are not claimed as verified here.
 
 ## Development
 
-The repository includes TypeScript sources and the generated files required by
-OpenChamber:
+The repository includes TypeScript sources, tests, and the generated files
+required by OpenChamber:
 
 ```sh
 npm install
