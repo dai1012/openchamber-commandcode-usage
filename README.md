@@ -2,6 +2,8 @@
 
 在 OpenChamber Desktop/Web 中显示 Command Code 使用量。
 
+![Command Code Usage preview](assets/preview.png)
+
 显示：
 
 - Monthly usage / remaining
