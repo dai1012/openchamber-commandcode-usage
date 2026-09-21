@@ -1,0 +1,38 @@
+{
+  "name": "openchamber-commandcode-usage",
+  "version": "1.0.0",
+  "description": "OpenChamber extension that displays Command Code usage from the local cmduse CLI.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "bun test",
+    "build": "bunx --no-install openchamber-guest-bundle panel/main.ts panel/main.js && bunx --no-install openchamber-guest-bundle --node service/main.ts service/main.js"
+  },
+  "openchamber": {
+    "apiVersion": 1,
+    "engines": {
+      "openchamber": ">=1.24.0"
+    },
+    "contributes": {
+      "panel": {
+        "id": "commandcode-usage",
+        "name": "Command Code Usage",
+        "icon": "bar-chart-2",
+        "entry": "panel/index.html"
+      },
+      "service": {
+        "entry": "service/main.js",
+        "runtime": "host",
+        "permissions": {
+          "exec": [
+            "cmduse"
+          ]
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "@openchamber/sdk": "1.24.2"
+  }
+}

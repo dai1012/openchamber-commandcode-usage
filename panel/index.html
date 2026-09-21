@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Command Code Usage</title>
+    <style>
+      html,
+      body {
+        min-height: 100%;
+        margin: 0;
+      }
+
+      body {
+        background: var(--oc-bg);
+        color: var(--oc-fg);
+        font-family: var(--oc-font);
+        font-size: 0.875rem;
+        line-height: 1.45;
+        overflow-wrap: anywhere;
+      }
+
+      #root {
+        min-height: 100vh;
+        padding: 12px;
+        box-sizing: border-box;
+      }
+
+      .usage-app {
+        display: flex;
+        max-width: 420px;
+        margin: 0 auto;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .usage-header,
+      .usage-footer,
+      .usage-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        min-width: 0;
+      }
+
+      .usage-title-block {
+        min-width: 0;
+      }
+
+      h1,
+      h2 {
+        margin: 0;
+      }
+
+      .usage-header h1 {
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+
+      .usage-subtitle,
+      .usage-period,
+      .usage-reset,
+      .usage-unavailable-copy,
+      .usage-footer,
+      .summary-metric span {
+        color: var(--oc-muted);
+        font-size: 0.75rem;
+      }
+
+      .usage-badge {
+        flex: 0 0 auto;
+      }
+
+      .usage-content {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .usage-section,
+      .summary-section {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 10px;
+        border: 1px solid var(--oc-border);
+        border-radius: var(--oc-radius);
+        background: var(--oc-elevated);
+      }
+
+      .usage-heading h2,
+      .summary-section h2 {
+        font-size: 0.8125rem;
+        font-weight: 600;
+      }
+
+      .usage-percent {
+        color: var(--oc-muted);
+        font-family: var(--oc-mono);
+        font-size: 0.75rem;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .usage-progress .oc-sdk-progress {
+        gap: 0;
+      }
+
+      .usage-progress .oc-sdk-progress-label {
+        display: none;
+      }
+
+      .usage-amount,
+      .usage-remaining {
+        font-family: var(--oc-mono);
+        font-variant-numeric: tabular-nums;
+      }
+
+      .usage-amount {
+        font-size: 0.8125rem;
+      }
+
+      .usage-remaining {
+        color: var(--oc-success-text, var(--oc-muted));
+        font-size: 0.75rem;
+      }
+
+      .usage-reset,
+      .usage-period {
+        font-family: var(--oc-mono);
+        font-variant-numeric: tabular-nums;
+      }
+
+      .usage-unavailable {
+        min-height: 50px;
+        justify-content: center;
+      }
+
+      .summary-section {
+        gap: 8px;
+      }
+
+      .summary-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .summary-metric {
+        display: flex;
+        min-width: 0;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .summary-metric strong {
+        overflow: hidden;
+        font-family: var(--oc-mono);
+        font-size: 0.8125rem;
+        font-weight: 500;
+        font-variant-numeric: tabular-nums;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .usage-footer {
+        padding-top: 2px;
+      }
+
+      .usage-actions {
+        flex: 0 0 auto;
+      }
+
+      .usage-message:empty {
+        display: none;
+      }
+
+      @media (max-width: 280px) {
+        #root {
+          padding: 8px;
+        }
+
+        .summary-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main id="root"></main>
+    <script src="main.js"></script>
+  </body>
+</html>
