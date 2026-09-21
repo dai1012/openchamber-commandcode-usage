@@ -37,7 +37,7 @@ cmduse -1 --json
 
 1. Open OpenChamber.
 2. Go to **Settings → Extensions**.
-3. Paste this Git repository URL.
+3. Paste `https://github.com/dai1012/openchamber-commandcode-usage`.
 4. Click **Add**.
 5. Approve the local service permission.
 

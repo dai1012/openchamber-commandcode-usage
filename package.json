@@ -4,6 +4,14 @@
   "description": "OpenChamber extension that displays Command Code usage from the local cmduse CLI.",
   "license": "MIT",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dai1012/openchamber-commandcode-usage.git"
+  },
+  "homepage": "https://github.com/dai1012/openchamber-commandcode-usage#readme",
+  "bugs": {
+    "url": "https://github.com/dai1012/openchamber-commandcode-usage/issues"
+  },
   "type": "module",
   "scripts": {
     "test": "bun test",
